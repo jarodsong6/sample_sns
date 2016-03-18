@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   Rails.application.routes.draw do
+  get 'users/show'
+
     devise_for :users, controllers: {
       registrations: 'users/registrations',
       sessions: 'users/sessions'
