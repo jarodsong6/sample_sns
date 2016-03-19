@@ -46,6 +46,13 @@ group :development do
   gem 'rubocop', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise'
