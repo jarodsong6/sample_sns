@@ -6,6 +6,11 @@ RSpec.feature 'Users', type: :feature do
     scenario 'visits profile page' do
         visit user_path(authed_user)
         expect(page).to have_content(authed_user.name)
+        expect(current_path).to eq(user_path(authed_user))
+
+        authed_user.posts.order(created_at: :desc).paginate(page: 1).each do |post|
+          expect(page).to have_content(post.content)
+        end
     end
   end
 

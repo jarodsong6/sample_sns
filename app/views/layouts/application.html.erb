@@ -10,6 +10,9 @@
   <%= render 'layouts/header' %>
   <div class="container">
     <% flash.each do |message_type, message| %>
+      <% alert_map = { alert: 'danger', notice: 'info' }
+        message_type = alert_map[message_type.to_sym] if alert_map.key?(message_type.to_sym)
+      %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
