@@ -1,6 +1,7 @@
 module FeatureHelpers
-  def create_logged_in_user
-    user = FactoryGirl.create(:user)
+  def create_logged_in_user(with_posts = false)
+    user_type = with_posts ? :user_with_posts : :user
+    user = FactoryGirl.create(user_type)
     login(user)
     user
   end

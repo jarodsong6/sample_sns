@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :posts, only: [:create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
