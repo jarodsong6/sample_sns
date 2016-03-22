@@ -57,3 +57,4 @@ end
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise'
+gem 'carrierwave'

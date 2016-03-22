@@ -3,5 +3,10 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post..." %>
   </div>
+   <%= f.fields_for :post_pictures do |picture_form| %>
+     <span class="picture">
+       <%= picture_form.file_field :picture, :multiple => true, name: "post[post_pictures_attributes][][picture]", accept: 'image/jpeg,image/gif,image/png' %>
+     </span>
+   <% end %>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

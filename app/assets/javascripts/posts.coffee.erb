@@ -1,0 +1,14 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'ready page:load', ->
+  $('#post_post_pictures_attributes_0_picture').bind 'change', ->
+    max_number_of_pictures = <%= Post::MAX_NUMBER_OF_PICTURES %>
+    if @files.length > max_number_of_pictures
+      alert 'Maximum ' + max_number_of_pictures + ' pictures allowed per post'
+      return
+    for file in @files
+      size_in_megabytes = file.size / 1024 / 1024
+      if size_in_megabytes > 5
+        alert 'Maximum file size of each file is 5MB. Please choose a smaller file.'
+        return
